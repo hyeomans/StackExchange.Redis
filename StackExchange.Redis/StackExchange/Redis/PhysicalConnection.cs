@@ -786,7 +786,7 @@ namespace StackExchange.Redis
 #if CORE_CLR
                         ssl.AuthenticateAsClientAsync(host).GetAwaiter().GetResult();
 #else
-                        ssl.AuthenticateAsClient(host);
+                        ssl.AuthenticateAsClient(host, null, SslProtocols.Tls | SslProtocols.Ssl3 | SslProtocols.Ssl2, true);
 #endif
                     }
                     catch (AuthenticationException authexception)
